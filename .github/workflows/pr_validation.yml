@@ -33,6 +33,9 @@ jobs:
         with:
           global-json-file: "./global.json"
 
+      - name: "Restore .NET tools"
+        run: dotnet tool restore
+
       - name: "Update release notes"
         shell: pwsh
         run: |

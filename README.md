@@ -12,6 +12,19 @@ We primarily use GitHub Actions for our CI/CD pipelines, but also maintain Azure
 ### SDK Version Management
 We use `global.json` to pin the .NET SDK version for both CI/CD environments and local development. This ensures consistent builds across all environments and developers.
 
+### .NET Tools
+We use local .NET tools to enhance our build and documentation process. The tools are configured in `.config/dotnet-tools.json` and include:
+
+- [Incrementalist](https://github.com/petabridge/Incrementalist) (v1.0.0-beta4) - Used for determining which projects need to be rebuilt based on Git changes
+- [DocFx](https://dotnet.github.io/docfx/) (v2.78.3) - Used for generating documentation
+
+To restore these tools in your local environment, run:
+```powershell
+dotnet tool restore
+```
+
+This command is automatically executed in our CI/CD pipelines (both GitHub Actions and Azure DevOps) to ensure tools are available during builds.
+
 ### Centralized Package and Build Management
 We utilize two key MSBuild files for centralized configuration:
 
