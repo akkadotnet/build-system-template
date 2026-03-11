@@ -12,6 +12,6 @@
   <!-- Test dependencies -->
   <!-- SourceLink support for all Akka.NET projects -->
   <ItemGroup>
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.102"/>
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.200"/>
   </ItemGroup>
 </Project>
