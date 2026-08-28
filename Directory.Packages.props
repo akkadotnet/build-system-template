@@ -2,16 +2,16 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <!-- Nuget package versions -->
-    <AkkaHostingVersion>1.5.70</AkkaHostingVersion>
+    <AkkaHostingVersion>1.5.71</AkkaHostingVersion>
   </PropertyGroup>
   <!-- App dependencies -->
   <ItemGroup>
     <PackageVersion Include="Akka.Hosting" Version="$(AkkaHostingVersion)"/>
-    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.9"/>
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.11"/>
   </ItemGroup>
   <!-- Test dependencies -->
   <!-- SourceLink support for all Akka.NET projects -->
   <ItemGroup>
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.300"/>
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.400"/>
   </ItemGroup>
 </Project>
