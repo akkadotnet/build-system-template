@@ -7,4 +7,5 @@
     <File Path="README.md" />
   </Folder>
   <Project Path="src/Akka.Console/Akka.Console.csproj" />
+  <Project Path="src/Akka.Console.Tests/Akka.Console.Tests.csproj" />
 </Solution>
