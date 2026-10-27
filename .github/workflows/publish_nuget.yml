@@ -19,13 +19,13 @@ jobs:
 
     steps:
     - name: "Checkout"
-      uses: actions/checkout@v7.0.1
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
         lfs: true
         fetch-depth: 0
         
     - name: "Install .NET SDK"
-      uses: actions/setup-dotnet@v6.0.0
+      uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
       with:
         global-json-file: "./global.json"
 
@@ -55,7 +55,7 @@ jobs:
         }
 
     - name: release
-      uses: actions/create-release@v1
+      uses: actions/create-release@0cb9c9b65d5d1901c1f53e5e66eaf4afd303e70e # v1
       id: create_release
       with:
         draft: false
@@ -67,7 +67,7 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
 
     - name: Upload Release Asset
-      uses: AButler/upload-release-assets@v4.0.0
+      uses: AButler/upload-release-assets@34491005a5d7ec239a784e460807ce844fde7962 # v4.0.0
       with:
           repo-token: ${{ github.token }}
           release-tag: ${{ github.ref_name }}
