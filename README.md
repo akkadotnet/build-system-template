@@ -15,8 +15,8 @@ We use `global.json` to pin the .NET SDK version for both CI/CD environments and
 ### .NET Tools
 We use local .NET tools to enhance our build and documentation process. The tools are configured in `.config/dotnet-tools.json` and include:
 
-- [Incrementalist](https://github.com/petabridge/Incrementalist) (v1.0.0-beta4) - Used for determining which projects need to be rebuilt based on Git changes
-- [DocFx](https://dotnet.github.io/docfx/) (v2.78.3) - Used for generating documentation
+- [Incrementalist](https://github.com/petabridge/Incrementalist) (v1.2.2) - Used for determining which projects need to be rebuilt based on Git changes
+- [DocFx](https://dotnet.github.io/docfx/) (v2.81.0) - Used for generating documentation
 
 To restore these tools in your local environment, run:
 ```powershell
@@ -37,6 +37,23 @@ We utilize two key MSBuild files for centralized configuration:
    - Common compiler settings
    - Target framework definitions
 
+### Target Frameworks
+Target frameworks are defined once in `Directory.Build.props` and referenced by name from each project, so a framework bump is a one-line change that flows to every project:
+
+| Property | Value | Used by |
+|---|---|---|
+| `$(NetLibVersion)` | `net10.0` | Libraries and applications |
+| `$(NetTestVersion)` | `net10.0` | Test projects |
+| `$(NetStandardLibVersion)` | `net10.0` | Akka.NET parity / downstream repos |
+
+Reference them in a project file instead of hardcoding a TFM:
+
+```xml
+<TargetFramework>$(NetLibVersion)</TargetFramework>
+```
+
+Do not set `TargetFramework` in `Directory.Build.props` itself. A project-level `TargetFramework` overrides it silently, and a project that uses `<TargetFrameworks>` (plural) will fail to build against a singular value defined in props.
+
 ### Code Coverage Configuration
 The `coverlet.runsettings` file configures code coverage collection using Coverlet, with settings for:
 - Multiple coverage report formats (JSON, Cobertura, LCOV, TeamCity, OpenCover)
@@ -55,7 +72,7 @@ Our release process is streamlined through:
 The build system primarily relies on standard `dotnet` CLI commands, with the PowerShell scripts mainly handling release note processing and version management.
 
 ### Solution Format
-We prefer the new `.slnx` XML-based solution format over the traditional `.sln` format. This requires .NET 9 SDK or later. The new format is more concise and easier to work with. You can migrate existing solutions using:
+We prefer the new `.slnx` XML-based solution format over the traditional `.sln` format. This requires .NET 9 SDK or later (this template pins .NET 10). The new format is more concise and easier to work with. You can migrate existing solutions using:
 
 ```powershell
 dotnet sln migrate
