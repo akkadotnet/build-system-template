@@ -4,7 +4,7 @@
     <!-- Nuget package versions -->
     <AkkaHostingVersion>1.5.73</AkkaHostingVersion>
     <XunitVersion>2.9.3</XunitVersion>
-    <XunitRunnerVersion>3.1.5</XunitRunnerVersion>
+    <XunitRunnerVersion>4.0.1</XunitRunnerVersion>
     <TestSdkVersion>18.11.0</TestSdkVersion>
   </PropertyGroup>
   <!-- App dependencies -->
