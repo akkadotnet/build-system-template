@@ -10,7 +10,7 @@
   <!-- App dependencies -->
   <ItemGroup>
     <PackageVersion Include="Akka.Hosting" Version="$(AkkaHostingVersion)"/>
-    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.14"/>
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="11.0.0"/>
   </ItemGroup>
   <!-- Test dependencies -->
   <ItemGroup>
