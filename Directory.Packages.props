@@ -5,7 +5,7 @@
     <AkkaHostingVersion>1.5.73</AkkaHostingVersion>
     <XunitVersion>2.9.3</XunitVersion>
     <XunitRunnerVersion>3.1.5</XunitRunnerVersion>
-    <TestSdkVersion>18.11.0</TestSdkVersion>
+    <TestSdkVersion>18.11.1</TestSdkVersion>
   </PropertyGroup>
   <!-- App dependencies -->
   <ItemGroup>
